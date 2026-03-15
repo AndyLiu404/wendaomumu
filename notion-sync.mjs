@@ -2,6 +2,9 @@ import pkg from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
 import fs from "fs";
 import path from "path";
+import https from "https";
+import http from "http";
+import { createWriteStream } from "fs";
 
 const { Client } = pkg;
 
@@ -23,6 +26,60 @@ const CATEGORY_MAP = {
   博客: "content/zh/posts",
 };
 const DEFAULT_DIR = "content/zh/posts";
+
+// Download an image URL to local static folder, return local path
+async function downloadImage(imageUrl, slug, index) {
+  const ext = imageUrl.split("?")[0].split(".").pop().toLowerCase() || "jpg";
+  const safeExt = ["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(ext) ? ext : "jpg";
+  const filename = `${slug}-${index}.${safeExt}`;
+  const localDir = `static/images/posts`;
+  const localPath = path.join(localDir, filename);
+  const publicPath = `/images/posts/${filename}`;
+
+  // Skip if already downloaded
+  if (fs.existsSync(localPath)) return publicPath;
+
+  fs.mkdirSync(localDir, { recursive: true });
+
+  return new Promise((resolve, reject) => {
+    const protocol = imageUrl.startsWith("https") ? https : http;
+    const file = createWriteStream(localPath);
+    protocol.get(imageUrl, (res) => {
+      // Follow redirect
+      if (res.statusCode === 301 || res.statusCode === 302) {
+        file.close();
+        fs.unlinkSync(localPath);
+        downloadImage(res.headers.location, slug, index).then(resolve).catch(reject);
+        return;
+      }
+      res.pipe(file);
+      file.on("finish", () => { file.close(); resolve(publicPath); });
+    }).on("error", (err) => {
+      fs.unlinkSync(localPath);
+      reject(err);
+    });
+  });
+}
+
+// Replace Notion image URLs in markdown with local paths
+async function localizeImages(markdown, slug) {
+  const imgRegex = /!\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g;
+  const matches = [...markdown.matchAll(imgRegex)];
+  let result = markdown;
+  let index = 0;
+
+  for (const match of matches) {
+    const [full, alt, url] = match;
+    try {
+      const localPath = await downloadImage(url, slug, index++);
+      result = result.replace(full, `![${alt}](${localPath})`);
+      console.log(`  ↓ image saved: ${localPath}`);
+    } catch (e) {
+      console.warn(`  ⚠ failed to download image: ${url}`);
+    }
+  }
+  return result;
+}
 
 async function sync() {
   console.log("Fetching published articles from Notion...");
@@ -57,6 +114,9 @@ async function sync() {
     const mdBlocks = await n2m.pageToMarkdown(page.id);
     const mdContent = n2m.toMarkdownString(mdBlocks);
 
+    // Download images and replace URLs
+    const localizedContent = await localizeImages(mdContent.parent, slug);
+
     const frontMatter = [
       "---",
       `title: "${title.replace(/"/g, '\\"')}"`,
@@ -69,7 +129,7 @@ async function sync() {
       .filter((line) => line !== null)
       .join("\n");
 
-    const fullContent = frontMatter + "\n" + mdContent.parent;
+    const fullContent = frontMatter + "\n" + localizedContent;
 
     fs.mkdirSync(outputDir, { recursive: true });
     const filename = path.join(outputDir, `${slug}.md`);
