@@ -1,0 +1,26 @@
+{
+  "name": "wendaomumu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sync": "node notion-sync.mjs",
+    "build": "node notion-sync.mjs && hugo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndyLiu404/wendaomumu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AndyLiu404/wendaomumu/issues"
+  },
+  "homepage": "https://github.com/AndyLiu404/wendaomumu#readme",
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "notion-to-md": "^3.1.9"
+  }
+}

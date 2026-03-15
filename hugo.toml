@@ -18,21 +18,21 @@ hasCJKLanguage = true
         url = "/citywalk/"
         weight = 10
         [languages.zh.menu.main.params]
-          icon = "categories"
+          icon = "map"
+      [[languages.zh.menu.main]]
+        name = "内容创作者"
+        url = "/creator/"
+        weight = 20
+        [languages.zh.menu.main.params]
+          icon = "creator"
       [[languages.zh.menu.main]]
         name = "博客"
         url = "/posts/"
-        weight = 20
-        [languages.zh.menu.main.params]
-          icon = "archives"
-      [[languages.zh.menu.main]]
-        name = "播客"
-        url = "/podcast/"
         weight = 30
         [languages.zh.menu.main.params]
-          icon = "hash"
+          icon = "pencil"
       [[languages.zh.menu.main]]
-        name = "關於我"
+        name = "关于我"
         url = "/about/"
         weight = 40
         [languages.zh.menu.main.params]
@@ -50,19 +50,19 @@ hasCJKLanguage = true
         url = "/en/citywalk/"
         weight = 10
         [languages.en.menu.main.params]
-          icon = "categories"
+          icon = "map"
+      [[languages.en.menu.main]]
+        name = "Creator"
+        url = "/en/creator/"
+        weight = 20
+        [languages.en.menu.main.params]
+          icon = "creator"
       [[languages.en.menu.main]]
         name = "Blog"
         url = "/en/posts/"
-        weight = 20
-        [languages.en.menu.main.params]
-          icon = "archives"
-      [[languages.en.menu.main]]
-        name = "Podcast"
-        url = "/en/podcast/"
         weight = 30
         [languages.en.menu.main.params]
-          icon = "hash"
+          icon = "pencil"
       [[languages.en.menu.main]]
         name = "About"
         url = "/en/about/"
@@ -85,7 +85,7 @@ hasCJKLanguage = true
 
   [params.sidebar]
     emoji = "🗺️"
-    subtitle = "城市漫步 · 播客 · 技術"
+    subtitle = "城市漫步 · 播客 · 技术"
     avatar = ""
 
   [params.article]

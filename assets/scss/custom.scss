@@ -1,0 +1,85 @@
+// 全局字体增大
+:root {
+    --article-font-size: 1.8rem;
+}
+
+body {
+    font-size: 1.7rem;
+}
+
+// 文章正文字体
+.article-content {
+    font-size: 1.8rem;
+    line-height: 1.85;
+
+    p {
+        font-size: 1.8rem;
+    }
+}
+
+// 文章列表标题加大
+.article-title {
+    font-size: 2.2rem !important;
+}
+
+// 文章列表摘要
+.article-subtitle {
+    font-size: 1.6rem;
+}
+
+// 侧边栏整体加宽
+#left-sidebar {
+    width: 280px;
+
+    .sidebar-inner {
+        padding: 30px 24px;
+    }
+}
+
+// 侧边栏站点名称
+.site-name {
+    font-size: 2.4rem !important;
+    font-weight: 700;
+    color: #1a1a2e !important;
+}
+
+// 侧边栏副标题 - 加深颜色
+.site-description {
+    font-size: 1.55rem;
+    color: #444 !important;
+    opacity: 1 !important;
+}
+
+// 侧边栏菜单 - 加大加深
+.sidebar-menu {
+    margin-top: 8px;
+
+    li {
+        font-size: 1.75rem;
+        font-weight: 600;
+
+        a {
+            padding: 10px 14px;
+            color: #222 !important;
+            opacity: 1 !important;
+
+            span {
+                color: #222 !important;
+            }
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+            color: #333 !important;
+            opacity: 1 !important;
+            stroke: #333 !important;
+        }
+
+        &:hover a {
+            color: #000 !important;
+            background: rgba(0,0,0,0.06);
+            border-radius: 8px;
+        }
+    }
+}
