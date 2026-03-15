@@ -1,0 +1,106 @@
+baseURL = "https://wendaomumu.com/"
+title = "文道木木"
+theme = "hugo-theme-stack"
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+hasCJKLanguage = true
+
+[languages]
+  [languages.zh]
+    languageName = "中文"
+    languageCode = "zh-CN"
+    weight = 1
+    title = "文道木木"
+    contentDir = "content/zh"
+    [languages.zh.menu]
+      [[languages.zh.menu.main]]
+        name = "Citywalk"
+        url = "/citywalk/"
+        weight = 10
+        [languages.zh.menu.main.params]
+          icon = "categories"
+      [[languages.zh.menu.main]]
+        name = "博客"
+        url = "/posts/"
+        weight = 20
+        [languages.zh.menu.main.params]
+          icon = "archives"
+      [[languages.zh.menu.main]]
+        name = "播客"
+        url = "/podcast/"
+        weight = 30
+        [languages.zh.menu.main.params]
+          icon = "hash"
+      [[languages.zh.menu.main]]
+        name = "關於我"
+        url = "/about/"
+        weight = 40
+        [languages.zh.menu.main.params]
+          icon = "user"
+
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    weight = 2
+    title = "Wendao Mumu"
+    contentDir = "content/en"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Citywalk"
+        url = "/en/citywalk/"
+        weight = 10
+        [languages.en.menu.main.params]
+          icon = "categories"
+      [[languages.en.menu.main]]
+        name = "Blog"
+        url = "/en/posts/"
+        weight = 20
+        [languages.en.menu.main.params]
+          icon = "archives"
+      [[languages.en.menu.main]]
+        name = "Podcast"
+        url = "/en/podcast/"
+        weight = 30
+        [languages.en.menu.main.params]
+          icon = "hash"
+      [[languages.en.menu.main]]
+        name = "About"
+        url = "/en/about/"
+        weight = 40
+        [languages.en.menu.main.params]
+          icon = "user"
+
+[params]
+  mainSections = ["posts", "citywalk", "podcast"]
+  featuredImageField = "image"
+  rssFullContent = true
+
+  [params.footer]
+    since = 2024
+    customText = ""
+
+  [params.dateFormat]
+    published = "2006-01-02"
+    lastUpdated = "2006-01-02 15:04"
+
+  [params.sidebar]
+    emoji = "🗺️"
+    subtitle = "城市漫步 · 播客 · 技術"
+    avatar = ""
+
+  [params.article]
+    math = false
+    toc = true
+    readingTime = true
+
+  [params.colorScheme]
+    toggle = true
+    default = "auto"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
