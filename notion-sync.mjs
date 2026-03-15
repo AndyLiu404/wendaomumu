@@ -27,11 +27,21 @@ const CATEGORY_MAP = {
 };
 const DEFAULT_DIR = "content/zh/posts";
 
+// Sanitize slug to ASCII only for use in filenames
+function asciiSlug(str) {
+  return str
+    .replace(/[^\w-]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .toLowerCase()
+    .slice(0, 40) || "post";
+}
+
 // Download an image URL to local static folder, return local path
 async function downloadImage(imageUrl, slug, index) {
   const ext = imageUrl.split("?")[0].split(".").pop().toLowerCase() || "jpg";
   const safeExt = ["jpg", "jpeg", "png", "gif", "webp", "svg"].includes(ext) ? ext : "jpg";
-  const filename = `${slug}-${index}.${safeExt}`;
+  const filename = `${asciiSlug(slug)}-${index}.${safeExt}`;
   const localDir = `static/images/posts`;
   const localPath = path.join(localDir, filename);
   const publicPath = `/images/posts/${filename}`;
@@ -114,8 +124,10 @@ async function sync() {
     const mdBlocks = await n2m.pageToMarkdown(page.id);
     const mdContent = n2m.toMarkdownString(mdBlocks);
 
+    // Use short page ID as image prefix to avoid collisions across articles
+    const pageIdShort = page.id.replace(/-/g, "").slice(0, 12);
     // Download images and replace URLs
-    const localizedContent = await localizeImages(mdContent.parent, slug);
+    const localizedContent = await localizeImages(mdContent.parent, pageIdShort);
 
     const frontMatter = [
       "---",
