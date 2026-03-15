@@ -115,11 +115,11 @@ async function sync() {
     const category = props.Category?.select?.name || "";
     const outputDir = CATEGORY_MAP[category] || DEFAULT_DIR;
 
-    const slug = title
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w\u4e00-\u9fff-]/g, "")
-      .slice(0, 60);
+    // Use Notion Slug field if set, otherwise fall back to title-based slug
+    const notionSlug = props.Slug?.rich_text?.[0]?.plain_text?.trim() || "";
+    const slug = notionSlug
+      ? notionSlug.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "")
+      : title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w\u4e00-\u9fff-]/g, "").slice(0, 60);
 
     const mdBlocks = await n2m.pageToMarkdown(page.id);
     const mdContent = n2m.toMarkdownString(mdBlocks);

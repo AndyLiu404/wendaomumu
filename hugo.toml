@@ -37,6 +37,12 @@ hasCJKLanguage = true
         weight = 40
         [languages.zh.menu.main.params]
           icon = "user"
+      [[languages.zh.menu.main]]
+        name = "搜索"
+        url = "/search/"
+        weight = 50
+        [languages.zh.menu.main.params]
+          icon = "search"
 
   [languages.en]
     languageName = "English"
@@ -69,6 +75,12 @@ hasCJKLanguage = true
         weight = 40
         [languages.en.menu.main.params]
           icon = "user"
+      [[languages.en.menu.main]]
+        name = "Search"
+        url = "/en/search/"
+        weight = 50
+        [languages.en.menu.main.params]
+          icon = "search"
 
 [params]
   mainSections = ["posts", "citywalk", "podcast"]
@@ -92,10 +104,15 @@ hasCJKLanguage = true
     math = false
     toc = true
     readingTime = true
+    [params.article.share]
+      enabled = true
 
   [params.colorScheme]
     toggle = true
     default = "auto"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
 
 [markup]
   [markup.goldmark]
