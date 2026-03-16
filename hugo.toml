@@ -1,86 +1,35 @@
 baseURL = "https://wendaomumu.com/"
 title = "文道木木"
 theme = "hugo-theme-stack"
-defaultContentLanguage = "zh"
-defaultContentLanguageInSubdir = false
+languageCode = "zh-CN"
+contentDir = "content/zh"
 hasCJKLanguage = true
 
-[languages]
-  [languages.zh]
-    languageName = "中文"
-    languageCode = "zh-CN"
-    weight = 1
-    title = "文道木木"
-    contentDir = "content/zh"
-    [languages.zh.menu]
-      [[languages.zh.menu.main]]
-        name = "Citywalk"
-        url = "/citywalk/"
-        weight = 10
-        [languages.zh.menu.main.params]
-          icon = "map"
-      [[languages.zh.menu.main]]
-        name = "内容创作者"
-        url = "/creator/"
-        weight = 20
-        [languages.zh.menu.main.params]
-          icon = "creator"
-      [[languages.zh.menu.main]]
-        name = "博客"
-        url = "/posts/"
-        weight = 30
-        [languages.zh.menu.main.params]
-          icon = "pencil"
-      [[languages.zh.menu.main]]
-        name = "关于我"
-        url = "/about/"
-        weight = 40
-        [languages.zh.menu.main.params]
-          icon = "user"
-      [[languages.zh.menu.main]]
-        name = "搜索"
-        url = "/search/"
-        weight = 50
-        [languages.zh.menu.main.params]
-          icon = "search"
-
-  [languages.en]
-    languageName = "English"
-    languageCode = "en"
-    weight = 2
-    title = "Wendao Mumu"
-    contentDir = "content/en"
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        name = "Citywalk"
-        url = "/en/citywalk/"
-        weight = 10
-        [languages.en.menu.main.params]
-          icon = "map"
-      [[languages.en.menu.main]]
-        name = "Creator"
-        url = "/en/creator/"
-        weight = 20
-        [languages.en.menu.main.params]
-          icon = "creator"
-      [[languages.en.menu.main]]
-        name = "Blog"
-        url = "/en/posts/"
-        weight = 30
-        [languages.en.menu.main.params]
-          icon = "pencil"
-      [[languages.en.menu.main]]
-        name = "About"
-        url = "/en/about/"
-        weight = 40
-        [languages.en.menu.main.params]
-          icon = "user"
-      [[languages.en.menu.main]]
-        name = "Search"
-        url = "/en/search/"
-        weight = 50
-        [languages.en.menu.main.params]
-          icon = "search"
+[menu]
+  [[menu.main]]
+    name = "Citywalk"
+    url = "/citywalk/"
+    weight = 10
+    [menu.main.params]
+      icon = "map"
+  [[menu.main]]
+    name = "内容创作者"
+    url = "/creator/"
+    weight = 20
+    [menu.main.params]
+      icon = "creator"
+  [[menu.main]]
+    name = "博客"
+    url = "/posts/"
+    weight = 30
+    [menu.main.params]
+      icon = "pencil"
+  [[menu.main]]
+    name = "关于我"
+    url = "/about/"
+    weight = 40
+    [menu.main.params]
+      icon = "user"
 
 [params]
   mainSections = ["posts", "citywalk", "podcast"]
@@ -89,7 +38,7 @@ hasCJKLanguage = true
 
   [params.footer]
     since = 2024
-    customText = ""
+    customText = "© 文道木木"
 
   [params.dateFormat]
     published = "2006-01-02"
@@ -112,7 +61,7 @@ hasCJKLanguage = true
     default = "auto"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
 
 [markup]
   [markup.goldmark]
