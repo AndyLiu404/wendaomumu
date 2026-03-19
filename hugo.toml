@@ -4,6 +4,7 @@ theme = "hugo-theme-stack"
 languageCode = "zh-CN"
 contentDir = "content/zh"
 hasCJKLanguage = true
+timeZone = "Asia/Tokyo"
 
 [menu]
   [[menu.main]]
