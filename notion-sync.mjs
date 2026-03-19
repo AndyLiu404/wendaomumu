@@ -9,7 +9,7 @@ import { createWriteStream } from "fs";
 const { Client } = pkg;
 
 const NOTION_TOKEN = process.env.NOTION_TOKEN;
-const DATABASE_ID = "29580cca903380dd882ed142381a0abc";
+const DATABASE_ID = "32880cca903380d39b0adedb421cf137";
 
 if (!NOTION_TOKEN) {
   console.error("Error: NOTION_TOKEN environment variable is not set.");
@@ -100,7 +100,7 @@ async function sync() {
       property: "Status",
       status: { equals: "Published" },
     },
-    sorts: [{ property: "Date", direction: "descending" }],
+    sorts: [{ property: "Publish Date", direction: "descending" }],
   });
 
   console.log(`Found ${response.results.length} published articles.`);
@@ -110,7 +110,7 @@ async function sync() {
 
     const titleProp = props.Title || props.Name;
     const title = titleProp?.title?.[0]?.plain_text || "Untitled";
-    const date = props.Date?.date?.start || new Date().toISOString().split("T")[0];
+    const date = props["Publish Date"]?.date?.start || page.created_time.split("T")[0];
     const tags = props.Tags?.multi_select?.map((t) => t.name) || [];
     const category = props.Category?.select?.name || "";
     const outputDir = CATEGORY_MAP[category] || DEFAULT_DIR;
