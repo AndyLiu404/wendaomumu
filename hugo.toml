@@ -57,6 +57,9 @@ timeZone = "Asia/Tokyo"
     [params.article.share]
       enabled = true
 
+  [[params.widgets.page]]
+    type = "toc"
+
   [params.colorScheme]
     toggle = true
     default = "auto"
