@@ -571,7 +571,7 @@ Source：[https://www.nippon.com/ja/guide-to-japan/gu004085/](https://www.nippon
 ![image.png](/images/posts/11880cca9033-55.png)
 
 
-## 内容提纲
+### 内容提纲
 
 - 鸟居是江户早期原建筑
     - 历次地震不倒
@@ -624,16 +624,19 @@ Source：[https://www.nippon.com/ja/guide-to-japan/gu004085/](https://www.nippon
         - 股价受熊猫交配影响的东天红公司
             - 交配，可能生孩子，生意可能更好
 
-# 12 中央喷水池区域
+## 12 中央喷水池区域
 
 
-## 讲解位置
+### 讲解位置
+
+
+[https://maps.app.goo.gl/2kiwzQGSxpk8LMq18](https://maps.app.goo.gl/2kiwzQGSxpk8LMq18)
 
 
 ![Screenshot_2026-03-01_at_8.54.39_PM.png](/images/posts/11880cca9033-58.png)
 
 
-## 参考图片
+### 参考图片
 
 
 ![Screenshot_2026-03-01_at_12.03.47_AM.png](/images/posts/11880cca9033-59.png)
@@ -657,7 +660,7 @@ Source：[https://www.nippon.com/ja/guide-to-japan/gu004085/](https://www.nippon
 ![image.png](/images/posts/11880cca9033-65.png)
 
 
-## 内容提纲
+### 内容提纲
 
 - 错误的雕像
     - 搞错了重来
@@ -716,7 +719,7 @@ Source：[https://www.nippon.com/ja/guide-to-japan/gu004085/](https://www.nippon
 ![image.png](/images/posts/11880cca9033-70.png)
 
 
-## 内容提纲
+### 内容提纲
 
 - 🏛️ 本馆
     - “穿西装戴头盔”的混搭风：“帝冠样式”，
