@@ -66,6 +66,7 @@
                 {{ $childActive := eq $currentPage.RelPermalink .URL }}
                 <li {{ if $childActive }}class="current"{{ end }}>
                     <a href='{{ .URL }}' {{ if .Params.newTab }}target="_blank"{{ end }}>
+                        <span class="menu-sub-arrow">↳</span>
                         <span>{{- .Name -}}</span>
                     </a>
                 </li>

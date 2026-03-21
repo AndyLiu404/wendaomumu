@@ -132,39 +132,41 @@ body {
 
 // --- Sub-menu (child items under a sidebar entry) ---
 ol.menu-sub {
-    padding-left: 14px;
-    margin-top: 2px;
     list-style: none;
+    padding: 2px 0 4px 0;
+    margin: 0;
+    display: block;
 
     li {
-        font-size: 1.55rem;
-        font-weight: 500;
+        display: block;
+        width: 100%;
 
         a {
-            padding: 7px 14px;
-            display: flex;
+            display: flex !important;
             align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
+            height: auto !important;
+            padding: 6px 14px 6px 20px;
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: var(--text-secondary) !important;
             border-radius: 6px;
+            gap: 6px;
             transition: background 0.2s ease, color 0.15s ease;
 
-            &::before {
-                content: "↳";
-                font-size: 1.2rem;
-                opacity: 0.4;
-                flex-shrink: 0;
+            &:hover {
+                background: rgba(224, 122, 58, 0.07);
+                color: var(--text-primary) !important;
             }
         }
 
-        &:hover a {
-            background: rgba(224, 122, 58, 0.07);
-            color: var(--text-primary);
+        .menu-sub-arrow {
+            opacity: 0.35;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         &.current a {
-            color: var(--accent-color);
-            background: rgba(224, 122, 58, 0.08);
+            color: var(--accent-color) !important;
         }
     }
 }
