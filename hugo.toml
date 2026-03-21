@@ -10,9 +10,17 @@ timeZone = "Asia/Tokyo"
   [[menu.main]]
     name = "Citywalk"
     url = "/citywalk/"
+    identifier = "citywalk"
     weight = 10
     [menu.main.params]
       icon = "map"
+  [[menu.main]]
+    name = "CityWalk App"
+    url = "/citywalk-app/"
+    parent = "citywalk"
+    weight = 11
+    [menu.main.params]
+      newTab = true
   [[menu.main]]
     name = "内容创作者"
     url = "/creator/"
