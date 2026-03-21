@@ -46,79 +46,99 @@ body {
     font-size: 1.7rem;
 }
 
-// --- Article Content: Clean Typography System ---
-// Design: size + weight hierarchy only — no decorative borders on headings.
-// Reference: Notion, Linear, Substack — clarity through space, not ornament.
+// --- Article font: Georgia serif for literary feel ---
+// Chinese characters fall back to system font (PingFang SC / Noto Serif CJK)
+// which creates a nice contrast: elegant serif for EN/punctuation, clean CJK for characters.
+:root {
+    --article-font-family: Georgia, "Times New Roman", serif;
+}
+
+// Warm off-white background for article pages only (not dark mode)
+.article-page .main-article {
+    background: #fdfaf6;
+}
+:root[data-scheme="dark"] .article-page .main-article {
+    background: var(--card-background);
+}
+
+// --- Article Content: Editorial / 书卷感 typography ---
 .article-content {
     font-size: 1.8rem;
-    line-height: 1.85;
-    color: var(--text-secondary);
+    line-height: 2;
+    color: #2d2416;
 
     p {
-        font-size: 1.8rem;
-        margin: 1.4em 0;
+        margin: 1.5em 0;
     }
 
-    // ── Remove Stack theme's left-border decoration on ALL headings ──
-    // The theme applies border-inline-start + negative margin-inline-start.
-    // We override with clean typographic hierarchy instead.
+    // ── Remove Stack theme's left-border + negative margin on all headings ──
     h1, h2, h3, h4, h5, h6 {
         margin-inline-start: 0;
         padding-inline-start: 0;
         border-inline-start: none;
-        color: var(--text-primary);
-        font-feature-settings: "kern" 1;
     }
 
-    // ── Heading scale ──
-    // Rule: each level is clearly smaller than the one above.
-    // H1 should rarely appear in body (article title IS the H1),
-    // but if used, it must not dwarf everything else.
+    // ── H1: Georgia, only used if article body has a top-level title ──
     h1 {
-        font-size: 2.4rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.6rem;
+        font-weight: 700;
         line-height: 1.25;
+        letter-spacing: -0.3px;
+        color: #1a1410;
         margin-top: 3em;
         margin-bottom: 0.8em;
-        padding-top: 1em;
-        border-top: 1px solid var(--card-separator-color);
+        padding-bottom: 0.6em;
+        border-bottom: 1px solid #e8ddd0;
     }
 
+    // ── H2: sans-serif section header, bottom-border divider ──
     h2 {
-        font-size: 2.1rem;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
+        font-size: 2.0rem;
         font-weight: 700;
-        letter-spacing: -0.3px;
-        line-height: 1.3;
-        margin-top: 2.8em;
-        margin-bottom: 0.6em;
-        padding-top: 0.8em;
-        border-top: 1px solid var(--card-separator-color);
+        letter-spacing: -0.2px;
+        line-height: 1.35;
+        color: #1a1410;
+        margin-top: 3em;
+        margin-bottom: 0.8em;
+        padding-bottom: 0.6em;
+        border-bottom: 1px solid #e8ddd0;
     }
 
+    // ── H3: sans-serif, no decoration ──
     h3 {
-        font-size: 1.9rem;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
+        font-size: 1.8rem;
         font-weight: 700;
-        line-height: 1.35;
-        margin-top: 2em;
+        line-height: 1.4;
+        color: #2d2416;
+        margin-top: 2.2em;
         margin-bottom: 0.5em;
     }
 
+    // ── H4 ──
     h4 {
-        font-size: 1.75rem;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
+        font-size: 1.65rem;
         font-weight: 600;
-        line-height: 1.4;
-        margin-top: 1.6em;
+        line-height: 1.45;
+        color: #5c4f3d;
+        margin-top: 1.8em;
         margin-bottom: 0.4em;
-        color: var(--text-secondary);
     }
 
-    // ── Blockquote ──
+    // ── Blockquote: accent left border, italic, no background ──
     blockquote:not(.alert) {
         border-inline-start-color: var(--accent-color);
         border-inline-start-width: 3px;
+        background: none;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
         font-style: italic;
-        color: var(--text-secondary);
+        font-size: 1.9rem;
+        line-height: 1.85;
+        color: #5c4f3d;
     }
 
     // ── Images ──
@@ -132,10 +152,10 @@ body {
     // ── Lists ──
     ul, ol {
         padding-inline-start: 1.8em;
-        line-height: 1.75;
+        line-height: 1.85;
 
         li {
-            margin-bottom: 0.4em;
+            margin-bottom: 0.5em;
         }
     }
 
@@ -145,20 +165,51 @@ body {
         width: 100%;
 
         th {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
             font-weight: 700;
-            color: var(--text-primary);
-            background-color: rgba(0, 0, 0, 0.025);
+            color: #1a1410;
+            background-color: rgba(196, 97, 42, 0.04);
         }
     }
 
-    // ── HR — visible section break ──
+    // ── HR: centered three dots, literary style ──
     hr {
-        margin: 3em auto;
-        width: 60px;
-        height: 1px;
-        background: var(--card-separator-color);
-        opacity: 1;
         border: none;
+        text-align: center;
+        margin: 3em 0;
+        height: auto;
+        background: none;
+        opacity: 1;
+        width: auto;
+
+        &::after {
+            content: "· · ·";
+            color: #c4a882;
+            letter-spacing: 8px;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+// Dark mode: revert text colors inside article
+:root[data-scheme="dark"] .article-content {
+    color: rgba(255, 255, 255, 0.82);
+
+    h1, h2 {
+        color: rgba(255, 255, 255, 0.92);
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    h3, h4 {
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    blockquote:not(.alert) {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    hr::after {
+        color: rgba(255, 255, 255, 0.25);
     }
 }
 
