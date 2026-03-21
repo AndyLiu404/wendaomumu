@@ -46,42 +46,74 @@ body {
     font-size: 1.7rem;
 }
 
-// --- Article Content: Full Typography System ---
+// --- Article Content: Clean Typography System ---
+// Design: size + weight hierarchy only — no decorative borders on headings.
+// Reference: Notion, Linear, Substack — clarity through space, not ornament.
 .article-content {
     font-size: 1.8rem;
     line-height: 1.85;
+    color: var(--text-secondary);
 
     p {
         font-size: 1.8rem;
+        margin: 1.4em 0;
     }
 
-    // Heading hierarchy — clear size steps
+    // ── Remove Stack theme's left-border decoration on ALL headings ──
+    // The theme applies border-inline-start + negative margin-inline-start.
+    // We override with clean typographic hierarchy instead.
+    h1, h2, h3, h4, h5, h6 {
+        margin-inline-start: 0;
+        padding-inline-start: 0;
+        border-inline-start: none;
+        color: var(--text-primary);
+        font-feature-settings: "kern" 1;
+    }
+
+    // ── Heading scale ──
+    // Rule: each level is clearly smaller than the one above.
+    // H1 should rarely appear in body (article title IS the H1),
+    // but if used, it must not dwarf everything else.
+    h1 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        line-height: 1.25;
+        margin-top: 3em;
+        margin-bottom: 0.8em;
+        padding-top: 1em;
+        border-top: 1px solid var(--card-separator-color);
+    }
+
     h2 {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
         font-weight: 700;
         letter-spacing: -0.3px;
-        margin-top: 2.4em;
-        margin-bottom: 0.7em;
         line-height: 1.3;
+        margin-top: 2.8em;
+        margin-bottom: 0.6em;
+        padding-top: 0.8em;
+        border-top: 1px solid var(--card-separator-color);
     }
 
     h3 {
-        font-size: 1.95rem;
+        font-size: 1.9rem;
         font-weight: 700;
-        margin-top: 2em;
-        margin-bottom: 0.6em;
         line-height: 1.35;
+        margin-top: 2em;
+        margin-bottom: 0.5em;
     }
 
     h4 {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
         font-weight: 600;
-        margin-top: 1.6em;
-        margin-bottom: 0.5em;
         line-height: 1.4;
+        margin-top: 1.6em;
+        margin-bottom: 0.4em;
+        color: var(--text-secondary);
     }
 
-    // Blockquote — accent border for brand consistency
+    // ── Blockquote ──
     blockquote:not(.alert) {
         border-inline-start-color: var(--accent-color);
         border-inline-start-width: 3px;
@@ -89,7 +121,7 @@ body {
         color: var(--text-secondary);
     }
 
-    // Images — breathing room + polish
+    // ── Images ──
     img {
         width: 100%;
         height: auto;
@@ -97,7 +129,7 @@ body {
         margin: 0.4em 0;
     }
 
-    // Lists — tighter line height for CJK
+    // ── Lists ──
     ul, ol {
         padding-inline-start: 1.8em;
         line-height: 1.75;
@@ -107,7 +139,7 @@ body {
         }
     }
 
-    // Tables — clean borders
+    // ── Tables ──
     table {
         font-size: 1.6rem;
         width: 100%;
@@ -115,7 +147,18 @@ body {
         th {
             font-weight: 700;
             color: var(--text-primary);
+            background-color: rgba(0, 0, 0, 0.025);
         }
+    }
+
+    // ── HR — visible section break ──
+    hr {
+        margin: 3em auto;
+        width: 60px;
+        height: 1px;
+        background: var(--card-separator-color);
+        opacity: 1;
+        border: none;
     }
 }
 
