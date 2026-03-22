@@ -14,42 +14,42 @@ comments: false
 <div class="city-card">
   <div class="city-cover" style="background-image:url('https://r2.wendaomumu.com/tours/tokyo-imperial/cover.jpg')">
     <div class="city-cover-overlay"></div>
+    <span class="city-badge">即将上线</span>
     <div class="city-cover-content">
-      <span class="city-cover-icon">🗼</span>
-      <h3 class="city-cover-name">东京</h3>
-      <p class="city-cover-desc">上野・浅草・皇居・日本桥</p>
+      <span class="city-icon">🗼</span>
+      <div class="city-text">
+        <h3 class="city-name">东京</h3>
+        <p class="city-desc">上野・浅草・皇居・日本桥</p>
+      </div>
     </div>
-  </div>
-  <div class="city-card-body">
-    <div class="coming-soon-badge">即将上线，敬请期待</div>
   </div>
 </div>
 
 <div class="city-card">
   <div class="city-cover" style="background-image:url('https://r2.wendaomumu.com/booking/shanghai-cover.jpg')">
     <div class="city-cover-overlay"></div>
+    <span class="city-badge">即将上线</span>
     <div class="city-cover-content">
-      <span class="city-cover-icon">🌉</span>
-      <h3 class="city-cover-name">上海</h3>
-      <p class="city-cover-desc">外滩・法租界・老城厢・衡复</p>
+      <span class="city-icon">🌉</span>
+      <div class="city-text">
+        <h3 class="city-name">上海</h3>
+        <p class="city-desc">外滩・法租界・老城厢・衡复</p>
+      </div>
     </div>
-  </div>
-  <div class="city-card-body">
-    <div class="coming-soon-badge">即将上线，敬请期待</div>
   </div>
 </div>
 
 <div class="city-card">
   <div class="city-cover" style="background-image:url('https://r2.wendaomumu.com/booking/sf-cover.jpg')">
     <div class="city-cover-overlay"></div>
+    <span class="city-badge">即将上线</span>
     <div class="city-cover-content">
-      <span class="city-cover-icon">🌁</span>
-      <h3 class="city-cover-name">旧金山</h3>
-      <p class="city-cover-desc">唐人街・渔人码头・诺布山</p>
+      <span class="city-icon">🌁</span>
+      <div class="city-text">
+        <h3 class="city-name">旧金山</h3>
+        <p class="city-desc">唐人街・渔人码头・诺布山</p>
+      </div>
     </div>
-  </div>
-  <div class="city-card-body">
-    <div class="coming-soon-badge">即将上线，敬请期待</div>
   </div>
 </div>
 
@@ -57,71 +57,125 @@ comments: false
 </div>
 
 <style>
-.booking-page { padding: 8px 0 40px; }
+/* ── Hide article metadata (reading time) — not relevant on a landing page ── */
+.article-header .article-details { display: none; }
+
+/* ── Page layout ── */
+.booking-page { padding: 8px 0 48px; }
 .booking-intro {
   font-size: 1.7rem;
   color: var(--text-secondary);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   line-height: 1.7;
 }
+
+/* ── Cards ── */
 .city-cards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
+
 .city-card {
-  background: var(--card-background);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-l1);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.3, 0.64, 1),
+    box-shadow 0.28s ease;
+  cursor: default;
 }
+
+.city-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.09),
+    0 20px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Cover image area ── */
 .city-cover {
   position: relative;
-  height: 180px;
+  height: 200px;
   background-size: cover;
   background-position: center;
 }
+
+/* Directional gradient: transparent top-left → dark bottom */
 .city-cover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+  background: linear-gradient(
+    160deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.30) 50%,
+    rgba(0, 0, 0, 0.68) 100%
+  );
 }
+
+/* ── Frosted glass badge (top-right) ── */
+.city-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 20px;
+  padding: 4px 12px;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* ── Text block (bottom-left) ── */
 .city-cover-content {
   position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 22px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 18px 22px;
+  align-items: flex-end;
+  gap: 13px;
 }
-.city-cover-icon {
+
+.city-icon {
   font-size: 2.2rem;
   line-height: 1;
-  margin-bottom: 6px;
+  flex-shrink: 0;
+  margin-bottom: 2px;
 }
-.city-cover-name {
+
+.city-text { display: flex; flex-direction: column; }
+
+.city-name {
   font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 4px;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  margin: 0 0 3px;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
-.city-cover-desc {
-  font-size: 1.35rem;
-  color: rgba(255,255,255,0.85);
-  margin: 0;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-.city-card-body {
-  padding: 14px 22px;
-  display: flex;
-  align-items: center;
-}
-.coming-soon-badge {
+
+.city-desc {
   font-size: 1.3rem;
-  color: var(--accent-color);
-  background: rgba(224, 122, 58, 0.1);
-  border-radius: 20px;
-  padding: 5px 14px;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  line-height: 1.4;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .city-cover { height: 180px; }
+  .city-name { font-size: 2rem; }
 }
 </style>
