@@ -57,8 +57,8 @@ comments: false
 </div>
 
 <style>
-/* ── Hide article metadata (reading time) — not relevant on a landing page ── */
-.article-header .article-details { display: none; }
+/* ── Hide reading time meta — not relevant on a landing page ── */
+.article-meta { display: none; }
 
 /* ── Page layout ── */
 .booking-page { padding: 8px 0 48px; }
