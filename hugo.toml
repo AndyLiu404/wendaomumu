@@ -13,7 +13,6 @@ timeZone = "Asia/Tokyo"
     weight = 10
     [menu.main.params]
       icon = "map"
-      newTab = true
   [[menu.main]]
     name = "线下 CityWalk 预约"
     url = "/booking/"

@@ -3,6 +3,7 @@ title: "上野公园Citywalk 路书"
 date: 2026-03-20
 tags: ["上野", "东京", "江户历史", "路书"]
 slug: "ueno-roadbook"
+image: "/images/posts/11880cca9033-0.png"
 ---
 
 

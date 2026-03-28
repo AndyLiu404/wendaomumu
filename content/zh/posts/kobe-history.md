@@ -3,6 +3,7 @@ title: "神户历史地理观光"
 date: 2026-03-19
 tags: ["神户", "日本旅行", "神户历史", "地理"]
 slug: "kobe-history"
+image: "/images/posts/2a880cca9033-0.jpeg"
 ---
 
 
