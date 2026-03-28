@@ -6,8 +6,8 @@
   "scope": "/citywalk-app/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#F8F7F5",
-  "theme_color": "#CF6B1E",
+  "background_color": "#F5EFE6",
+  "theme_color": "#C8412F",
   "lang": "zh-Hans",
   "icons": [
     {
