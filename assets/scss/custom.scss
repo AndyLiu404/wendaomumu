@@ -1,85 +1,125 @@
-// ============================================
-// 文道木木 — Custom Theme Overrides
-// Brand color: warm terracotta (#E07A3A)
-// Design principle: warmth, clarity, restraint
-// ============================================
+// ============================================================
+// 文道木木 — Custom Theme
+// Aesthetic: 东方墨韵 · 文人漫步
+// Direction: Literary magazine × East Asian cultural heritage
+// Primary: 朱砂红 #C8412F (cinnabar — torii, seals, temple walls)
+// Surface: 宣纸 warm paper (not cold white)
+// Type: Noto Serif SC for headings — literati gravitas
+// ============================================================
 
-// --- Brand & Color Tokens ---
+// ── Google Fonts: 思源宋体 (Noto Serif SC) ──────────────────
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&display=swap');
+
+// ── Brand & Color Tokens ─────────────────────────────────────
 :root {
-    // Brand
-    --accent-color: #E07A3A;
-    --accent-color-darker: #C4612A;
-    --accent-color-text: #fff;
+    // 朱砂 Cinnabar
+    --accent-color:        #C8412F;
+    --accent-color-darker: #A83320;
+    --accent-color-text:   #fff;
 
-    // Text hierarchy (light mode)
-    --text-primary: #1C1C28;
-    --text-secondary: #555;
-    --text-tertiary: #888;
+    // Text hierarchy
+    --text-primary:   #1A1713;
+    --text-secondary: #6A6258;
+    --text-tertiary:  #9A9285;
 
-    // Layout
+    // Surface — 宣纸 aged paper
+    --body-background: #F0EAE0;
+    --card-background: #FFFDF8;
+
+    // Type scale
     --article-font-size: 1.8rem;
+    --card-border-radius: 12px;
 
-    // Cards
-    --card-border-radius: 14px;
+    // Code — warm tones
+    --code-text-color:       #A83320;
+    --code-background-color: rgba(200, 65, 47, 0.08);
 
-    // Inline code — warm tone
-    --code-text-color: #B55716;
-    --code-background-color: rgba(224, 122, 58, 0.09);
-
-    // Blockquote — use accent color for left border
-    --blockquote-background-color: rgba(224, 122, 58, 0.04);
+    // Blockquote
+    --blockquote-background-color: rgba(200, 65, 47, 0.04);
 }
 
-// Dark mode overrides
+// ── Dark mode ─────────────────────────────────────────────────
 :root[data-scheme="dark"] {
-    --text-primary: rgba(255, 255, 255, 0.92);
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --text-tertiary: rgba(255, 255, 255, 0.45);
+    --body-background: #1A1713;
+    --card-background: #241F1A;
 
-    --code-text-color: #F0A568;
-    --code-background-color: rgba(224, 122, 58, 0.12);
-    --blockquote-background-color: rgba(224, 122, 58, 0.06);
+    --text-primary:   rgba(255, 252, 245, 0.92);
+    --text-secondary: rgba(255, 252, 245, 0.65);
+    --text-tertiary:  rgba(255, 252, 245, 0.38);
+
+    --code-text-color:       #F0A568;
+    --code-background-color: rgba(200, 65, 47, 0.12);
+    --blockquote-background-color: rgba(200, 65, 47, 0.07);
 }
 
-// --- Global Typography ---
+// ── Global Body ───────────────────────────────────────────────
 body {
     font-size: 1.7rem;
+    background-color: var(--body-background);
 }
 
-// --- Article Content: Clean Typography System ---
-// Design: size + weight hierarchy only — no decorative borders on headings.
-// Reference: Notion, Linear, Substack — clarity through space, not ornament.
+// ── Site Name — 文人风骨 ──────────────────────────────────────
+.site-name {
+    font-family: 'Noto Serif SC', Georgia, 'STSong', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+}
+
+.site-description {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    opacity: 1;
+    letter-spacing: 0.02em;
+}
+
+// ── Article Title — Noto Serif SC, literary authority ─────────
+.article-title {
+    font-family: 'Noto Serif SC', Georgia, 'STSong', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+
+    @media (min-width: 1280px) {
+        font-size: 2.4rem;
+    }
+}
+
+.article-subtitle {
+    font-size: 1.6rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+}
+
+// ── Article Content ───────────────────────────────────────────
 .article-content {
     font-size: 1.8rem;
-    line-height: 1.85;
+    line-height: 1.9;
     color: var(--text-secondary);
 
     p {
         font-size: 1.8rem;
-        margin: 1.4em 0;
+        margin: 1.5em 0;
     }
 
-    // ── Remove Stack theme's left-border decoration on ALL headings ──
-    // The theme applies border-inline-start + negative margin-inline-start.
-    // We override with clean typographic hierarchy instead.
+    // Headings: Noto Serif SC, no decorative theme borders
     h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif SC', Georgia, 'STSong', serif;
         margin-inline-start: 0;
         padding-inline-start: 0;
         border-inline-start: none;
         color: var(--text-primary);
-        font-feature-settings: "kern" 1;
     }
 
-    // ── Heading scale ──
-    // Rule: each level is clearly smaller than the one above.
-    // H1 should rarely appear in body (article title IS the H1),
-    // but if used, it must not dwarf everything else.
     h1 {
         font-size: 2.4rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
         line-height: 1.25;
-        margin-top: 3em;
+        margin-top: 3.2em;
         margin-bottom: 0.8em;
         padding-top: 1em;
         border-top: 1px solid var(--card-separator-color);
@@ -88,9 +128,9 @@ body {
     h2 {
         font-size: 2.1rem;
         font-weight: 700;
-        letter-spacing: -0.3px;
+        letter-spacing: -0.01em;
         line-height: 1.3;
-        margin-top: 2.8em;
+        margin-top: 3em;
         margin-bottom: 0.6em;
         padding-top: 0.8em;
         border-top: 1px solid var(--card-separator-color);
@@ -100,28 +140,29 @@ body {
         font-size: 1.9rem;
         font-weight: 700;
         line-height: 1.35;
-        margin-top: 2em;
+        margin-top: 2.2em;
         margin-bottom: 0.5em;
     }
 
     h4 {
         font-size: 1.75rem;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 1.4;
-        margin-top: 1.6em;
+        margin-top: 1.8em;
         margin-bottom: 0.4em;
         color: var(--text-secondary);
     }
 
-    // ── Blockquote ──
+    // Blockquote — vermilion left border
     blockquote:not(.alert) {
         border-inline-start-color: var(--accent-color);
         border-inline-start-width: 3px;
         font-style: italic;
         color: var(--text-secondary);
+        background-color: var(--blockquote-background-color);
+        border-radius: 0 6px 6px 0;
     }
 
-    // ── Images ──
     img {
         width: 100%;
         height: auto;
@@ -129,17 +170,13 @@ body {
         margin: 0.4em 0;
     }
 
-    // ── Lists ──
     ul, ol {
         padding-inline-start: 1.8em;
-        line-height: 1.75;
+        line-height: 1.85;
 
-        li {
-            margin-bottom: 0.4em;
-        }
+        li { margin-bottom: 0.5em; }
     }
 
-    // ── Tables ──
     table {
         font-size: 1.6rem;
         width: 100%;
@@ -147,66 +184,44 @@ body {
         th {
             font-weight: 700;
             color: var(--text-primary);
-            background-color: rgba(0, 0, 0, 0.025);
+            background-color: rgba(0, 0, 0, 0.03);
         }
     }
 
-    // ── HR — visible section break ──
+    // HR — a cinnabar brushstroke, not a grey line
     hr {
-        margin: 3em auto;
-        width: 60px;
-        height: 1px;
-        background: var(--card-separator-color);
-        opacity: 1;
+        margin: 3.5em auto;
+        width: 48px;
+        height: 2px;
+        background: var(--accent-color);
+        opacity: 0.35;
         border: none;
+        border-radius: 1px;
+    }
+
+    a {
+        color: var(--accent-color);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: rgba(200, 65, 47, 0.25);
+        transition: text-decoration-color 0.15s ease;
+
+        &:hover { text-decoration-color: var(--accent-color); }
     }
 }
 
-// --- Article Title (list cards + article page) ---
-.article-title {
-    font-size: 2.4rem;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    line-height: 1.3;
-
-    @media (min-width: 1280px) {
-        font-size: 2.6rem;
-    }
-}
-
-.article-subtitle {
-    font-size: 1.6rem;
-    color: var(--text-secondary);
-    line-height: 1.55;
-}
-
-// --- Sidebar ---
+// ── Sidebar ────────────────────────────────────────────────────
 #left-sidebar {
     width: 280px;
 
-    .sidebar-inner {
-        padding: 30px 24px;
-    }
+    .sidebar-inner { padding: 30px 24px; }
 }
 
-.site-name {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.site-description {
-    font-size: 1.55rem;
-    color: var(--text-secondary);
-    opacity: 1;
-}
-
-// --- Sidebar Menu ---
 .sidebar-menu {
     margin-top: 8px;
 
     li {
-        font-size: 1.75rem;
+        font-size: 1.7rem;
         font-weight: 600;
 
         a {
@@ -214,11 +229,9 @@ body {
             color: var(--text-primary);
             opacity: 1;
             border-radius: 8px;
-            transition: background 0.2s ease, color 0.15s ease;
+            transition: background 0.18s ease, color 0.15s ease;
 
-            span {
-                color: var(--text-primary);
-            }
+            span { color: var(--text-primary); }
         }
 
         svg {
@@ -230,18 +243,13 @@ body {
             transition: color 0.15s ease, stroke 0.15s ease;
         }
 
-        &:hover a {
-            background: rgba(224, 122, 58, 0.1);
-        }
+        &:hover a { background: rgba(200, 65, 47, 0.08); }
 
-        // Active menu item
         &.current a {
             color: var(--accent-color);
-            background: rgba(224, 122, 58, 0.1);
+            background: rgba(200, 65, 47, 0.09);
 
-            span {
-                color: var(--accent-color);
-            }
+            span { color: var(--accent-color); }
         }
 
         &.current svg {
@@ -251,54 +259,36 @@ body {
     }
 }
 
-// --- Article Cards ---
+// ── Article Cards — satisfying physical lift ───────────────────
 .article-list {
     article {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background-color: var(--card-background);
+        transition: transform 0.22s cubic-bezier(0.34, 1.2, 0.64, 1),
+                    box-shadow 0.22s ease;
         border-radius: var(--card-border-radius);
 
         &:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             box-shadow:
-                0px 16px 32px rgba(0, 0, 0, 0.07),
-                0px 4px 8px rgba(0, 0, 0, 0.04);
+                0 20px 40px rgba(26, 23, 19, 0.08),
+                0 4px 12px rgba(26, 23, 19, 0.05);
         }
     }
 }
 
-// --- Links ---
-.article-content a {
-    color: var(--accent-color);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: rgba(224, 122, 58, 0.3);
-    transition: text-decoration-color 0.15s ease;
-
-    &:hover {
-        text-decoration-color: var(--accent-color);
-    }
-}
-
-// --- Footer Cleanup ---
+// ── Footer ─────────────────────────────────────────────────────
 .footer {
     font-size: 1.3rem;
     color: var(--text-tertiary);
 }
 
-// --- Scrollbar (subtle) ---
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
+// ── Scrollbar ──────────────────────────────────────────────────
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(26, 23, 19, 0.12);
     border-radius: 3px;
 }
-
 :root[data-scheme="dark"] ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 252, 245, 0.12);
 }
