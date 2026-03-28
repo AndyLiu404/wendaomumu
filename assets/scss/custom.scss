@@ -52,7 +52,18 @@
     --blockquote-background-color: rgba(200, 65, 47, 0.07);
 }
 
-// ── Global Body ───────────────────────────────────────────────
+// ── 全站统一思源宋体 ──────────────────────────────────────────
+// body 覆盖不够，Stack 主题有更高优先级的 font-family 声明，
+// 需要对所有文本元素显式设置
+body,
+body *,
+input,
+button,
+textarea,
+select {
+    font-family: 'Noto Serif SC', Georgia, 'STSong', 'Songti SC', serif;
+}
+
 body {
     font-size: 1.7rem;
     background-color: var(--body-background);
