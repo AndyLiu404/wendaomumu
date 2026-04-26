@@ -8,17 +8,11 @@ timeZone = "Asia/Tokyo"
 
 [menu]
   [[menu.main]]
-    name = "线上 CityWalk App"
+    name = "CityWalk"
     url = "/citywalk/"
     weight = 10
     [menu.main.params]
       icon = "map"
-  [[menu.main]]
-    name = "线下 CityWalk 预约"
-    url = "/booking/"
-    weight = 20
-    [menu.main.params]
-      icon = "messages"
   [[menu.main]]
     name = "内容创作者"
     url = "/creator/"
