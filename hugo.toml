@@ -9,10 +9,11 @@ timeZone = "Asia/Tokyo"
 [menu]
   [[menu.main]]
     name = "CityWalk"
-    url = "/citywalk/"
+    url = "https://wendaocitywalk.com"
     weight = 10
     [menu.main.params]
       icon = "map"
+      newTab = true
   [[menu.main]]
     name = "内容创作者"
     url = "/creator/"
@@ -33,7 +34,7 @@ timeZone = "Asia/Tokyo"
       icon = "user"
 
 [params]
-  mainSections = ["posts", "citywalk", "podcast"]
+  mainSections = ["posts", "podcast"]
   featuredImageField = "image"
   rssFullContent = true
 

@@ -1,0 +1,12 @@
+services:
+  claude:
+    build:
+      context: .
+      dockerfile: Dockerfile.claude
+    volumes:
+      # Mount all projects (read-write)
+      - ~/projects:/workspace
+      # Share host Claude config (auth, memory, settings)
+      - ~/.claude:/root/.claude
+    stdin_open: true
+    tty: true

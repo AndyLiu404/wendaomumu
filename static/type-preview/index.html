@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>排版风格预览</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif; background: #f0f0f0; }
+
+/* ── Tab bar ── */
+.tab-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+.tab-bar .label { font-size: 13px; font-weight: 600; color: #888; margin-right: 4px; white-space: nowrap; }
+.tab {
+  padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;
+  border: 1.5px solid #ddd; background: white; cursor: pointer; color: #555;
+  transition: all 0.15s; white-space: nowrap;
+}
+.tab:hover { border-color: #E07A3A; color: #E07A3A; }
+.tab.active { background: #E07A3A; border-color: #E07A3A; color: white; }
+
+/* ── Panels ── */
+.panel { display: none; padding-top: 56px; min-height: 100vh; }
+.panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<div class="tab-bar">
+  <span class="label">选风格：</span>
+  <button class="tab active" onclick="show('s1', this)">① 简约白</button>
+  <button class="tab" onclick="show('s2', this)">② 书卷感</button>
+  <button class="tab" onclick="show('s3', this)">③ 现代暖</button>
+  <button class="tab" onclick="show('s4', this)">④ 极简黑</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     风格 1：简约白（PaperMod 风格）
+     干净、无装饰、系统字体
+══════════════════════════════════════════ -->
+<div id="s1" class="panel active">
+<style>
+#s1 { background: #fff; }
+#s1 .wrap { max-width: 680px; margin: 0 auto; padding: 60px 32px 100px; }
+#s1 .meta { font-size: 14px; color: #999; margin-bottom: 28px; display: flex; gap: 16px; }
+#s1 h1 { font-size: 32px; font-weight: 800; line-height: 1.25; letter-spacing: -0.5px; color: #111; margin-bottom: 20px; }
+#s1 .excerpt { font-size: 18px; color: #555; line-height: 1.7; margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid #eee; }
+#s1 .body { font-size: 17px; line-height: 1.9; color: #333; }
+#s1 .body p { margin: 1.4em 0; }
+#s1 .body h2 { font-size: 22px; font-weight: 700; color: #111; margin: 2.5em 0 0.7em; letter-spacing: -0.3px; }
+#s1 .body h3 { font-size: 19px; font-weight: 700; color: #111; margin: 2em 0 0.5em; }
+#s1 .body blockquote { margin: 1.8em 0; padding: 14px 20px; border-left: 3px solid #ddd; color: #666; font-style: italic; background: #fafafa; }
+#s1 .body code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; color: #c7254e; font-family: "SF Mono", Menlo, monospace; }
+#s1 .body ul { padding-left: 1.6em; margin: 1em 0; }
+#s1 .body li { margin-bottom: 0.4em; }
+#s1 .body hr { border: none; border-top: 1px solid #eee; margin: 3em 0; }
+#s1 .tag-row { display: flex; gap: 8px; margin-top: 48px; padding-top: 32px; border-top: 1px solid #eee; }
+#s1 .tag { padding: 4px 12px; border-radius: 4px; background: #f4f4f4; font-size: 13px; color: #555; }
+</style>
+<div class="wrap">
+  <div class="meta"><span>2025年 3月</span><span>上野公园</span><span>约 2800 字</span></div>
+  <h1>穿行上野两百年：在德川家的「梵蒂冈」寻找江户的记忆碎片</h1>
+  <div class="excerpt">上野，这个名字在东京地图上占据着一块不大不小的位置。地铁出口永远人声嘈杂，樱花季的护城河堤岸几乎没有落脚之地。但如果你愿意在游客散去的清晨推开宽永寺的侧门，你会发现另一个上野——属于江户时代的、被遗忘的上野。</div>
+  <div class="body">
+    <h2>德川家的「鬼门守护」</h2>
+    <p>1625 年，天台宗僧侣天海在江户城东北方向的台地上，选址建造了宽永寺。选址并非偶然——按照阴阳五行的方位理论，东北方向是「鬼门」，是不祥之气进入的通道。这座寺院的使命，是从精神上封锁整座江户城。</p>
+    <p>天海参照的是京都的延历寺与比叡山的格局。宽永寺的全盛时期，寺域面积超过 36 万坪，几乎覆盖了今天上野公园的全部，连同不忍池的大半。从现存的少量史料与明治时代的地图复原来看，这里曾经耸立着三十余座子院、十余座塔头、以及一座与京都清水寺同等规模的「清水观音堂」。</p>
+    <blockquote>上野山之于江户，犹如比叡山之于京都——不是风景，而是信仰的屏障。<br><cite style="display:block;text-align:right;font-size:0.85em;margin-top:8px;font-style:normal;color:#999">— 江户切绘图解说，1853</cite></blockquote>
+    <h2>戊辰战争的创口</h2>
+    <p>1868 年 5 月，彰义队在上野山以宽永寺为据点，与新政府军对峙。这场仅持续一天的「上野战争」，让这片寺域几乎付之一炬。战后，明治政府将废墟改造为公园——日本第一座现代意义上的公共公园在 1873 年正式开放。</p>
+    <h3>战火中幸存的建筑</h3>
+    <p>今天，宽永寺的主要建筑仅剩一隅。根本中堂（本坊）退缩至公园东北角，低调得几乎让人遗忘。但清水观音堂完整保存，位于不忍池畔的高台上，每年秋天，一棵「月挂樱」在堂前盛开。</p>
+    <ul>
+      <li>清水观音堂（1631 年建，重要文化财）</li>
+      <li>两大师堂（供奉慈觉大师与天海）</li>
+      <li>旧本坊表门（唯一留存的寺院正门）</li>
+    </ul>
+    <hr>
+    <h2>怎么走这段路线</h2>
+    <p>建议从 JR 上野站「公园口」出发，沿西侧林荫道向北步行，进入宽永寺旧境内。清晨 7 点前游客极少，晨光从树冠间投落在青苔覆盖的石灯笼上，是最好的拍摄时机。整段路线步行约 90 分钟。</p>
+    <p>入场：<code>清水观音堂</code>免费参拜，内部收费 200 日元。两大师堂通常不对外开放。</p>
+  </div>
+  <div class="tag-row">
+    <span class="tag">东京</span><span class="tag">历史</span><span class="tag">citywalk</span>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     风格 2：书卷感（Editorial / 衬线）
+     Georgia 衬线字体，文学质感
+══════════════════════════════════════════ -->
+<div id="s2" class="panel">
+<style>
+#s2 { background: #fdfaf6; }
+#s2 .wrap { max-width: 720px; margin: 0 auto; padding: 60px 40px 100px; }
+#s2 .kicker { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #C4612A; margin-bottom: 16px; }
+#s2 h1 { font-family: Georgia, "Times New Roman", serif; font-size: 36px; font-weight: 700; line-height: 1.22; color: #1a1410; margin-bottom: 20px; letter-spacing: -0.3px; }
+#s2 .excerpt { font-family: Georgia, serif; font-size: 20px; color: #5c4f3d; line-height: 1.75; font-style: italic; margin-bottom: 36px; padding-bottom: 28px; border-bottom: 2px solid #e8ddd0; }
+#s2 .meta { font-size: 13px; color: #9e8e7e; margin-bottom: 40px; display: flex; gap: 20px; }
+#s2 .body { font-family: Georgia, "Times New Roman", serif; font-size: 18px; line-height: 2; color: #2d2416; }
+#s2 .body p { margin: 1.5em 0; }
+#s2 .body h2 { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; font-size: 20px; font-weight: 700; color: #1a1410; margin: 3em 0 0.8em; letter-spacing: -0.2px; padding-bottom: 8px; border-bottom: 1px solid #e8ddd0; }
+#s2 .body h3 { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; font-size: 17px; font-weight: 700; color: #2d2416; margin: 2.2em 0 0.6em; }
+#s2 .body blockquote { margin: 2em 0; padding: 0 0 0 24px; border-left: 3px solid #C4612A; color: #5c4f3d; font-style: italic; font-size: 19px; line-height: 1.8; }
+#s2 .body code { background: rgba(196,97,42,0.08); padding: 1px 5px; border-radius: 3px; font-size: 0.85em; color: #a04010; font-family: "SF Mono", Menlo, monospace; }
+#s2 .body ul { padding-left: 1.4em; margin: 1em 0; }
+#s2 .body li { margin-bottom: 0.5em; }
+#s2 .body hr { border: none; text-align: center; margin: 3em 0; color: #c4a882; letter-spacing: 8px; }
+#s2 .body hr::after { content: "· · ·"; }
+</style>
+<div class="wrap">
+  <div class="kicker">城市漫步 · 东京</div>
+  <h1>穿行上野两百年：在德川家的「梵蒂冈」寻找江户的记忆碎片</h1>
+  <div class="excerpt">上野，这个名字在东京地图上占据着一块不大不小的位置。地铁出口永远人声嘈杂，樱花季的护城河堤岸几乎没有落脚之地。但如果你愿意在游客散去的清晨推开宽永寺的侧门，你会发现另一个上野。</div>
+  <div class="meta"><span>2025年 3月</span><span>上野公园</span><span>约 2800 字</span></div>
+  <div class="body">
+    <h2>德川家的「鬼门守护」</h2>
+    <p>1625 年，天台宗僧侣天海在江户城东北方向的台地上，选址建造了宽永寺。选址并非偶然——按照阴阳五行的方位理论，东北方向是「鬼门」，是不祥之气进入的通道。这座寺院的使命，是从精神上封锁整座江户城。</p>
+    <p>天海参照的是京都的延历寺与比叡山的格局。宽永寺的全盛时期，寺域面积超过 36 万坪，几乎覆盖了今天上野公园的全部，连同不忍池的大半。</p>
+    <blockquote>上野山之于江户，犹如比叡山之于京都——不是风景，而是信仰的屏障。<cite style="display:block;text-align:right;font-size:0.82em;margin-top:10px;font-style:normal;color:#9e8e7e">— 江户切绘图解说，1853</cite></blockquote>
+    <h2>戊辰战争的创口</h2>
+    <p>1868 年 5 月，彰义队在上野山以宽永寺为据点，与新政府军对峙。这场仅持续一天的「上野战争」，让这片寺域几乎付之一炬。战后，明治政府将废墟改造为公园——日本第一座现代意义上的公共公园在 1873 年正式开放。</p>
+    <h3>战火中幸存的建筑</h3>
+    <p>今天，宽永寺的主要建筑仅剩一隅。根本中堂（本坊）退缩至公园东北角，低调得几乎让人遗忘。但清水观音堂完整保存，位于不忍池畔的高台上。</p>
+    <ul>
+      <li>清水观音堂（1631 年建，重要文化财）</li>
+      <li>两大师堂（供奉慈觉大师与天海）</li>
+      <li>旧本坊表门（唯一留存的寺院正门）</li>
+    </ul>
+    <hr>
+    <h2>怎么走这段路线</h2>
+    <p>建议从 JR 上野站「公园口」出发，沿西侧林荫道向北步行，进入宽永寺旧境内。清晨 7 点前游客极少，晨光从树冠间投落在青苔覆盖的石灯笼上，是最好的拍摄时机。整段路线步行约 90 分钟。</p>
+    <p>入场：<code>清水观音堂</code>免费参拜，内部收费 200 日元。</p>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     风格 3：现代暖（Congo 风格）
+     暖色背景卡片，品牌色标题
+══════════════════════════════════════════ -->
+<div id="s3" class="panel">
+<style>
+#s3 { background: #f5f0eb; padding: 40px 20px 80px; }
+#s3 .card { max-width: 700px; margin: 0 auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04); }
+#s3 .card-header { background: linear-gradient(135deg, #2d1f14 0%, #4a2c18 100%); padding: 40px 40px 36px; }
+#s3 .card-kicker { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(224,122,58,0.9); margin-bottom: 12px; }
+#s3 .card-title { font-size: 28px; font-weight: 800; line-height: 1.3; color: #fff; letter-spacing: -0.3px; }
+#s3 .card-meta { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); display: flex; gap: 16px; }
+#s3 .card-body { padding: 40px; font-size: 17px; line-height: 1.88; color: #3d2e22; }
+#s3 .card-body p { margin: 1.3em 0; }
+#s3 .card-body h2 { font-size: 20px; font-weight: 700; color: #C4612A; margin: 2.4em 0 0.7em; letter-spacing: -0.2px; display: flex; align-items: center; gap: 8px; }
+#s3 .card-body h2::before { content: ""; display: inline-block; width: 4px; height: 18px; background: #E07A3A; border-radius: 2px; flex-shrink: 0; }
+#s3 .card-body h3 { font-size: 17px; font-weight: 700; color: #2d1f14; margin: 1.8em 0 0.5em; }
+#s3 .card-body blockquote { margin: 1.8em 0; padding: 16px 20px; background: rgba(224,122,58,0.06); border-left: 3px solid #E07A3A; border-radius: 0 8px 8px 0; color: #5c3d24; font-style: italic; }
+#s3 .card-body code { background: rgba(224,122,58,0.1); padding: 2px 7px; border-radius: 4px; font-size: 0.87em; color: #B55716; font-family: "SF Mono", Menlo, monospace; }
+#s3 .card-body ul { padding-left: 1.5em; margin: 1em 0; }
+#s3 .card-body li { margin-bottom: 0.45em; }
+#s3 .card-body hr { border: none; border-top: 1px solid #f0e8de; margin: 2.5em 0; }
+#s3 .tag-row { display: flex; gap: 8px; margin-top: 32px; padding-top: 28px; border-top: 1px solid #f0e8de; flex-wrap: wrap; }
+#s3 .tag { padding: 4px 12px; border-radius: 20px; background: rgba(224,122,58,0.1); font-size: 12px; font-weight: 600; color: #C4612A; }
+</style>
+<div class="card">
+  <div class="card-header">
+    <div class="card-kicker">城市漫步 · 东京</div>
+    <div class="card-title">穿行上野两百年：在德川家的「梵蒂冈」寻找江户的记忆碎片</div>
+    <div class="card-meta"><span>2025年 3月</span><span>上野公园</span><span>约 2800 字</span></div>
+  </div>
+  <div class="card-body">
+    <p style="color:#666;font-size:16px;font-style:italic;margin-top:0;">上野，这个名字在东京地图上占据着一块不大不小的位置。地铁出口永远人声嘈杂，樱花季的护城河堤岸几乎没有落脚之地。但如果你愿意在游客散去的清晨推开宽永寺的侧门，你会发现另一个上野。</p>
+    <h2>德川家的「鬼门守护」</h2>
+    <p>1625 年，天台宗僧侣天海在江户城东北方向的台地上，选址建造了宽永寺。选址并非偶然——按照阴阳五行的方位理论，东北方向是「鬼门」，是不祥之气进入的通道。这座寺院的使命，是从精神上封锁整座江户城。</p>
+    <p>天海参照的是京都的延历寺与比叡山的格局。宽永寺的全盛时期，寺域面积超过 36 万坪，几乎覆盖了今天上野公园的全部。</p>
+    <blockquote>上野山之于江户，犹如比叡山之于京都——不是风景，而是信仰的屏障。<cite style="display:block;text-align:right;font-size:0.82em;margin-top:8px;font-style:normal;color:#9e7a5a">— 江户切绘图解说，1853</cite></blockquote>
+    <h2>戊辰战争的创口</h2>
+    <p>1868 年 5 月，彰义队在上野山以宽永寺为据点，与新政府军对峙。这场仅持续一天的「上野战争」，让这片寺域几乎付之一炬。战后，明治政府将废墟改造为公园——日本第一座现代意义上的公共公园在 1873 年正式开放。</p>
+    <h3>战火中幸存的建筑</h3>
+    <p>今天，宽永寺的主要建筑仅剩一隅。清水观音堂完整保存，位于不忍池畔的高台上，每年秋天，一棵「月挂樱」在堂前盛开。</p>
+    <ul>
+      <li>清水观音堂（1631 年建，重要文化财）</li>
+      <li>两大师堂（供奉慈觉大师与天海）</li>
+      <li>旧本坊表门（唯一留存的寺院正门）</li>
+    </ul>
+    <hr>
+    <h2>怎么走这段路线</h2>
+    <p>建议从 JR 上野站「公园口」出发，沿西侧林荫道向北步行，进入宽永寺旧境内。清晨 7 点前游客极少，整段路线步行约 90 分钟。</p>
+    <p>入场：<code>清水观音堂</code>免费参拜，内部收费 200 日元。</p>
+    <div class="tag-row">
+      <span class="tag">东京</span><span class="tag">历史</span><span class="tag">citywalk</span><span class="tag">寺院</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     风格 4：极简黑（Bear Blog 风格）
+     全黑白，大字，让内容说话
+══════════════════════════════════════════ -->
+<div id="s4" class="panel">
+<style>
+#s4 { background: #fff; }
+#s4 .wrap { max-width: 620px; margin: 0 auto; padding: 60px 32px 100px; }
+#s4 .meta { font-size: 13px; color: #999; margin-bottom: 32px; }
+#s4 h1 { font-size: 28px; font-weight: 700; line-height: 1.3; color: #000; margin-bottom: 32px; }
+#s4 .body { font-size: 18px; line-height: 2; color: #111; }
+#s4 .body p { margin: 1.5em 0; }
+#s4 .body h2 { font-size: 18px; font-weight: 700; color: #000; margin: 2.5em 0 0.5em; }
+#s4 .body h3 { font-size: 18px; font-weight: 700; color: #000; margin: 2em 0 0.5em; font-style: italic; }
+#s4 .body blockquote { margin: 1.5em 0; padding: 0 0 0 18px; border-left: 2px solid #000; color: #444; font-style: italic; }
+#s4 .body code { background: #f2f2f2; padding: 1px 5px; border-radius: 3px; font-size: 0.87em; font-family: "SF Mono", Menlo, monospace; }
+#s4 .body ul { padding-left: 1.4em; margin: 1em 0; }
+#s4 .body li { margin-bottom: 0.4em; }
+#s4 .body hr { border: none; border-top: 1px solid #ddd; margin: 3em 0; }
+#s4 .body a { color: #000; text-decoration: underline; text-underline-offset: 3px; }
+</style>
+<div class="wrap">
+  <div class="meta">2025-03-15 · 上野公园 · 约 2800 字</div>
+  <h1>穿行上野两百年：在德川家的「梵蒂冈」寻找江户的记忆碎片</h1>
+  <div class="body">
+    <p>上野，这个名字在东京地图上占据着一块不大不小的位置。地铁出口永远人声嘈杂，樱花季的护城河堤岸几乎没有落脚之地。但如果你愿意在游客散去的清晨推开宽永寺的侧门，你会发现另一个上野——属于江户时代的、被遗忘的上野。</p>
+    <h2>德川家的「鬼门守护」</h2>
+    <p>1625 年，天台宗僧侣天海在江户城东北方向的台地上，选址建造了宽永寺。选址并非偶然——按照阴阳五行的方位理论，东北方向是「鬼门」，是不祥之气进入的通道。这座寺院的使命，是从精神上封锁整座江户城。</p>
+    <p>天海参照的是京都的延历寺与比叡山的格局。宽永寺的全盛时期，寺域面积超过 36 万坪，几乎覆盖了今天上野公园的全部，连同不忍池的大半。</p>
+    <blockquote>上野山之于江户，犹如比叡山之于京都——不是风景，而是信仰的屏障。<br>— 江户切绘图解说，1853</blockquote>
+    <h2>戊辰战争的创口</h2>
+    <p>1868 年 5 月，彰义队在上野山以宽永寺为据点，与新政府军对峙。这场仅持续一天的「上野战争」，让这片寺域几乎付之一炬。战后，明治政府将废墟改造为公园——日本第一座现代意义上的公共公园在 1873 年正式开放。</p>
+    <h3>战火中幸存的建筑</h3>
+    <p>今天，宽永寺的主要建筑仅剩一隅。清水观音堂完整保存，位于不忍池畔的高台上，每年秋天，一棵「月挂樱」在堂前盛开。</p>
+    <ul>
+      <li>清水观音堂（1631 年建，重要文化财）</li>
+      <li>两大师堂（供奉慈觉大师与天海）</li>
+      <li>旧本坊表门（唯一留存的寺院正门）</li>
+    </ul>
+    <hr>
+    <h2>怎么走这段路线</h2>
+    <p>建议从 JR 上野站「公园口」出发，沿西侧林荫道向北步行，进入宽永寺旧境内。清晨 7 点前游客极少，晨光从树冠间投落在青苔覆盖的石灯笼上，是最好的拍摄时机。整段路线步行约 90 分钟。</p>
+    <p>入场：<code>清水观音堂</code>免费参拜，内部收费 200 日元。两大师堂通常不对外开放。</p>
+  </div>
+</div>
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
