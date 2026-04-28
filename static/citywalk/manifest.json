@@ -1,0 +1,25 @@
+{
+  "name": "文道 CityWalk",
+  "short_name": "CityWalk",
+  "description": "边走边听，城市漫步导览",
+  "start_url": "/citywalk/",
+  "scope": "/citywalk/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F5EFE6",
+  "theme_color": "#C8412F",
+  "lang": "zh-Hans",
+  "icons": [
+    {
+      "src": "/citywalk/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/citywalk/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
