@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <base href="/shunshun/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7c928" />
+    <meta
+      name="description"
+      content="雷霆跳跳跳：在春日核电站里躲开核能胶囊、烟囱和超级垃圾桶。"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E"
+    />
+    <title>雷霆跳跳跳</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="blueprint-grid" aria-hidden="true"></div>
+
+    <div class="game-shell">
+      <header class="site-header">
+        <div class="brand" aria-label="雷霆跳跳跳">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" focusable="false">
+              <ellipse cx="32" cy="32" rx="27" ry="10"></ellipse>
+              <ellipse cx="32" cy="32" rx="27" ry="10" transform="rotate(60 32 32)"></ellipse>
+              <ellipse cx="32" cy="32" rx="27" ry="10" transform="rotate(120 32 32)"></ellipse>
+              <circle cx="32" cy="32" r="6"></circle>
+            </svg>
+          </span>
+          <div>
+            <p class="eyebrow">春日核电站大冒险</p>
+            <p class="brand-name">雷霆跳跳跳</p>
+          </div>
+        </div>
+
+        <div class="header-actions" aria-label="游戏设置">
+          <button class="utility-button" id="muteButton" type="button" aria-pressed="false">
+            <span aria-hidden="true" id="soundIcon">♪</span>
+            <span id="soundLabel">声音：开</span>
+          </button>
+          <button class="utility-button" id="pauseButton" type="button" aria-pressed="false">
+            <span aria-hidden="true">Ⅱ</span>
+            <span id="pauseLabel">暂停</span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="game-stage" id="gameStage" aria-label="雷霆跳跳跳游戏区域">
+          <div class="stage-rivet stage-rivet--tl" aria-hidden="true"></div>
+          <div class="stage-rivet stage-rivet--tr" aria-hidden="true"></div>
+          <div class="stage-rivet stage-rivet--bl" aria-hidden="true"></div>
+          <div class="stage-rivet stage-rivet--br" aria-hidden="true"></div>
+
+          <canvas id="gameCanvas" width="1280" height="720" aria-label="横版跑酷游戏画面">
+            你的浏览器不支持游戏画面，请升级浏览器后再试。
+          </canvas>
+
+          <div class="hud">
+            <div class="score-board">
+              <span class="score-label">本次巡检</span>
+              <strong id="scoreValue">00000</strong>
+              <span class="score-unit">米</span>
+            </div>
+            <div class="best-board">
+              <span>最佳</span>
+              <strong id="bestValue">00000</strong>
+              <span>米</span>
+            </div>
+            <div class="speed-board" aria-label="奔跑速度">
+              <span>速度</span>
+              <div class="speed-track" aria-hidden="true"><i id="speedFill"></i></div>
+              <strong id="speedValue">1 档</strong>
+            </div>
+          </div>
+
+          <div class="equipment-board" aria-label="随身装备">
+            <span>卡通炸弹 <strong id="bombValue">5</strong> 枚</span>
+            <button id="gunButton" type="button" aria-pressed="false" disabled>
+              <kbd>J</kbd> 按住连射 · <strong id="ammoValue">50</strong> 发
+            </button>
+          </div>
+
+          <section class="screen screen--visible" id="startScreen" aria-labelledby="startTitle">
+            <div class="start-banner">
+              <span class="sign-tab">安全巡检 · 准备出发</span>
+              <p class="start-kicker">躲障碍 · 收里程 · 破纪录</p>
+              <h1 id="startTitle"><span>雷霆</span>跳跳跳</h1>
+              <p class="start-copy">带上 5 枚炸弹、50 发子弹！碰撞用一枚炸弹开路，按住 J 连射。</p>
+              <button class="primary-button" id="startButton" type="button">
+                <span>开始巡检</span>
+                <b aria-hidden="true">→</b>
+              </button>
+              <div class="control-hints" aria-label="操作说明">
+                <span><kbd>空格</kbd><kbd>↑</kbd> 跳跃</span>
+                <span><kbd>↓</kbd> 下蹲</span>
+                <span><kbd>J</kbd> 按住打枪</span>
+                <span><kbd>P</kbd> 暂停</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="screen" id="pauseScreen" aria-labelledby="pauseTitle" hidden>
+            <div class="pause-sign">
+              <span class="pause-icon" aria-hidden="true">Ⅱ</span>
+              <h2 id="pauseTitle">巡检暂停</h2>
+              <p>喝口水，准备好再继续。</p>
+              <button class="primary-button primary-button--small" id="resumeButton" type="button">
+                继续奔跑
+              </button>
+            </div>
+          </section>
+
+          <section class="screen" id="gameOverScreen" aria-labelledby="gameOverTitle" hidden>
+            <div class="result-sign">
+              <span class="result-stamp">巡检记录</span>
+              <h2 id="gameOverTitle">哎呀，差一点！</h2>
+              <p id="collisionMessage">大顺碰到了障碍物</p>
+              <div class="result-numbers">
+                <div><span>本次</span><strong id="finalScore">0</strong><small>米</small></div>
+                <div><span>最佳</span><strong id="finalBest">0</strong><small>米</small></div>
+              </div>
+              <p class="new-record" id="newRecord" hidden>新纪录！太厉害了！</p>
+              <button class="primary-button" id="restartButton" type="button">
+                <span>再跑一次</span>
+                <b aria-hidden="true">↻</b>
+              </button>
+            </div>
+          </section>
+
+          <p class="status-message" id="statusMessage" role="status" aria-live="assertive"></p>
+        </section>
+
+        <div class="touch-controls" aria-label="触屏操作">
+          <button class="touch-button touch-button--duck" id="duckButton" type="button">
+            <span aria-hidden="true">↓</span>
+            按住下蹲
+          </button>
+          <button class="touch-button touch-button--jump" id="jumpButton" type="button">
+            <span aria-hidden="true">↑</span>
+            点击跳跃
+          </button>
+        </div>
+
+        <div class="mission-strip" aria-label="巡检提示">
+          <span class="mission-label">今日任务</span>
+          <p>安全穿过反应堆园区</p>
+          <i aria-hidden="true"></i>
+          <p>遇到低空蒸汽管要下蹲</p>
+          <i aria-hidden="true"></i>
+          <p>按住 J 打枪，每局 5 枚炸弹、50 发子弹</p>
+        </div>
+      </main>
+
+      <footer>
+        <p>提示：也可以直接点击或轻触游戏画面跳跃</p>
+        <p class="safety-copy"><span aria-hidden="true">●</span> 卡通冒险，请勿模仿进入真实工业区域</p>
+      </footer>
+    </div>
+
+    <script src="game.js" defer></script>
+  </body>
+</html>
