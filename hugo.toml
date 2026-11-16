@@ -21,6 +21,12 @@ timeZone = "Asia/Tokyo"
     [menu.main.params]
       icon = "creator"
   [[menu.main]]
+    name = "References"
+    url = "/references/"
+    weight = 35
+    [menu.main.params]
+      icon = "link"
+  [[menu.main]]
     name = "博客"
     url = "/posts/"
     weight = 40

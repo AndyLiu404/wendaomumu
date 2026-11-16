@@ -1,0 +1,45 @@
+{{- $id := .Get "id" | default "" -}}
+{{- $title := .Get "title" | default "观看本期视频" -}}
+{{- $series := .Get "series" | default "城市与铁道" -}}
+{{- $duration := .Get "duration" | default "" -}}
+{{- $cover := .Get "cover" | default "" -}}
+{{- $url := .Get "url" | default "https://www.youtube.com/playlist?list=PLRY1D-haFaJU" -}}
+
+{{- if $id -}}
+<div class="yt-episode-card">
+  <div class="yt-episode-frame">
+    <iframe loading="lazy"
+            src="https://www.youtube-nocookie.com/embed/{{ $id }}"
+            title="{{ $title }}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+  </div>
+  <div class="yt-episode-bar">
+    <div class="yt-episode-meta">
+      <span class="yt-badge">YouTube</span>
+      <span class="yt-series">{{ $series }}{{ with $duration }} · {{ . }}{{ end }}</span>
+    </div>
+    <a class="yt-action" href="https://www.youtube.com/watch?v={{ $id }}" target="_blank" rel="noopener noreferrer">在 YouTube 打开 ↗</a>
+  </div>
+</div>
+{{- else -}}
+<a class="yt-episode-card yt-episode-card--compact" href="{{ $url }}" target="_blank" rel="noopener noreferrer" aria-label="前往 YouTube 观看《{{ $title }}》">
+  <div class="yt-compact-thumb">
+    {{- if $cover -}}
+      <img src="{{ $cover }}" alt="{{ $title }}" loading="lazy" />
+    {{- end -}}
+    <span class="yt-play-btn yt-play-btn--sm" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+    </span>
+  </div>
+  <div class="yt-compact-body">
+    <div class="yt-episode-meta">
+      <span class="yt-badge">YouTube</span>
+      <span class="yt-series">{{ $series }}{{ with $duration }} · {{ . }}{{ end }}</span>
+    </div>
+    <div class="yt-compact-title">{{ $title }}</div>
+    <div class="yt-compact-sub">YouTube 视频即将上线 · 点击查看《城市与铁道》系列播放列表</div>
+  </div>
+  <span class="yt-action">前往频道 ↗</span>
+</a>
+{{- end -}}
