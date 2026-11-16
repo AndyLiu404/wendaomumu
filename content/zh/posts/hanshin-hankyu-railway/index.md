@@ -1,5 +1,5 @@
 ---
-title: "城市与铁道 6｜阪神 vs 阪急：关西百年恩仇录"
+title: "城市与铁道 06｜阪神 vs 阪急：关西百年恩仇录"
 date: 2026-11-16
 categories: ["城市与铁道"]
 tags: ["大阪", "神户", "关西", "阪神电铁", "阪急电铁", "小林一三", "城市历史"]
@@ -14,7 +14,7 @@ description: "在大阪梅田，阪神百货与阪急百货隔街对峙。这两
 
 然而到了百年之后，这对斗了大半个世纪的死对头，却在资本市场的风暴里突然变成了一家人。这中间到底发生了什么？
 
-{{< episode-video series="城市与铁道 · 第 6 期" duration="17:30" title="城市与铁道 6｜阪神 vs 阪急：关西百年恩仇录" cover="/posts/hanshin-hankyu-railway/cover.jpg" url="https://www.youtube.com/playlist?list=PLRY1D-haFaJU" >}}
+{{< episode-video series="城市与铁道 · 第 06 期" duration="17:30" title="城市与铁道 06｜阪神 vs 阪急：关西百年恩仇录" cover="/posts/hanshin-hankyu-railway/cover.jpg" url="https://www.youtube.com/playlist?list=PLRY1D-haFaJU" >}}
 
 ![大阪—神户山与海走廊：海侧阪神、山侧阪急与中间的国铁](/images/posts/hanshin-hankyu/map-corridor.jpg)
 *图：大阪—神户走廊地形与铁路分布。红线为靠山而行的阪急，蓝线为贴海而建的阪神，夹在中间的是国铁（今 JR）。*
