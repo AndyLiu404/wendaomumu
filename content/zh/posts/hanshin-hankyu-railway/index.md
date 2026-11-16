@@ -14,7 +14,7 @@ description: "在大阪梅田，阪神百货与阪急百货隔街对峙。这两
 
 然而到了百年之后，这对斗了大半个世纪的死对头，却在资本市场的风暴里突然变成了一家人。这中间到底发生了什么？
 
-{{< episode-video series="城市与铁道 · 第 6 期" duration="17:30" title="城市与铁道 6｜阪神 vs 阪急：关西百年恩仇录" cover="/images/posts/hanshin-hankyu/cover.jpg" url="https://www.youtube.com/playlist?list=PLRY1D-haFaJU" >}}
+{{< episode-video series="城市与铁道 · 第 6 期" duration="17:30" title="城市与铁道 6｜阪神 vs 阪急：关西百年恩仇录" cover="/posts/hanshin-hankyu-railway/cover.jpg" url="https://www.youtube.com/playlist?list=PLRY1D-haFaJU" >}}
 
 ![大阪—神户山与海走廊：海侧阪神、山侧阪急与中间的国铁](/images/posts/hanshin-hankyu/map-corridor.jpg)
 *图：大阪—神户走廊地形与铁路分布。红线为靠山而行的阪急，蓝线为贴海而建的阪神，夹在中间的是国铁（今 JR）。*
@@ -184,12 +184,55 @@ description: "在大阪梅田，阪神百货与阪急百货隔街对峙。这两
 
 所以下次你站在大阪梅田街头，抬头看着那两座对峙而立的百货大楼时，不妨多看一眼。它们不只是两座逛街买东西的商场，它们身上流淌着的，是一部跨度整整百年、关于野心、对抗、守护与和解的关西城市传奇。
 
-## 本文 References 与资料下载
+## References 与资料下载
 
-<div class="editorial-ref-card">
-  <div class="editorial-ref-text">
-    <strong>查证史料出处与下载研究笔记</strong>
-    <span>本期引用的一手社史、地方志、报刊原文链接，以及我整理的中文参考笔记与事实核查底账，均汇总在专属资料页。</span>
+这一节汇总了本文制作与查证过程中引用的全部参考资料，以及我整理的中文笔记文档，欢迎直接下载或按图索骥查证原文。
+
+### 可下载资料（文道整理）
+
+<div class="ref-download-list">
+  <div class="ref-download-item">
+    <div class="ref-download-info">
+      <div class="ref-download-title">阪神与阪急参考资料与脉络笔记</div>
+      <div class="ref-download-desc">梳理 1905–2006 年两家公司的商业策略、六甲山开发战、1937 年梅田抢地与 2006 年合并始末。</div>
+    </div>
+    <a class="ref-download-btn" href="/downloads/hanshin-hankyu/hanshin-hankyu-research-notes.md" download>下载 Markdown ↓</a>
   </div>
-  <a class="editorial-ref-btn" href="/references/hanshin-hankyu/">查看 References →</a>
+  <div class="ref-download-item">
+    <div class="ref-download-info">
+      <div class="ref-download-title">史料出处与事实核查清单</div>
+      <div class="ref-download-desc">逐条记录关键历史事实的出处核对结果（官方社史、地方志、报刊与网页链接）。</div>
+    </div>
+    <a class="ref-download-btn" href="/downloads/hanshin-hankyu/hanshin-hankyu-sources-and-factcheck.md" download>下载 Markdown ↓</a>
+  </div>
 </div>
+
+### 一手社史、地方志与新闻档案
+
+- **阪神电气铁道官方历史（HANSHIN HISTORY）**：[https://www.hanshin.co.jp/company/history/history-story/](https://www.hanshin.co.jp/company/history/history-story/)
+- **阪急文化财团：小林一三生平与沿线开发**：[https://www.hankyu-bunka.or.jp/about/itsuo/](https://www.hankyu-bunka.or.jp/about/itsuo/)
+- **阪急百货沿革（社史档案）**：[https://the-shashi.com/tse/hankyu-department/chapter-1/](https://the-shashi.com/tse/hankyu-department/chapter-1/)
+- **2006 年阪急阪神经营统合决策与股价变化**：[https://the-shashi.com/tse/9042/decisions/hanshin-integration-2006/](https://the-shashi.com/tse/9042/decisions/hanshin-integration-2006/)
+- **前阪惠造《「私鉄王国関西」形成における一考察——2023年 小林一三生誕150年》（大阪检定报告 PDF）**：[https://www.osaka-kentei.jp/pdf/report/osk_houkoku2023/rpt_01.pdf](https://www.osaka-kentei.jp/pdf/report/osk_houkoku2023/rpt_01.pdf)
+- **池田市官方资料：池田室町（日本最早的郊外分让住宅 PDF）**：[https://www.city.ikeda.osaka.jp/material/files/group/1/2311-tokusyuu.pdf](https://www.city.ikeda.osaka.jp/material/files/group/1/2311-tokusyuu.pdf)
+- **东洋经济《日本最早的郊外住宅开发：池田室町》**：[https://toyokeizai.net/articles/-/588115](https://toyokeizai.net/articles/-/588115)
+- **神户市资料年表（六甲山开发史 PDF）**：[https://www.city.kobe.lg.jp/documents/56055/20250723183144.pdf](https://www.city.kobe.lg.jp/documents/56055/20250723183144.pdf)
+- **六甲缆车历史报道（乗りものニュース）**：[https://trafficnews.jp/post/129852](https://trafficnews.jp/post/129852)
+- **《大阪每日新闻》1920 年 6 月《阪神、阪急の序幕戦》（神户大学新闻记事文库）**：[https://da.lib.kobe-u.ac.jp/da/np/0100107341/](https://da.lib.kobe-u.ac.jp/da/np/0100107341/)
+- **日刊工业新闻 newswitch《东横百货与车站百货渊源》**：[https://newswitch.jp/p/8889](https://newswitch.jp/p/8889)
+- **神户新闻《阪急阪神历任社长交接》**：[https://www.kobe-np.co.jp/news/keizai/202212/0015909229.shtml](https://www.kobe-np.co.jp/news/keizai/202212/0015909229.shtml)
+- **Daily Sports《阪急阪神控股股东大会上的阪神虎提问》**：[2022 年报道](https://www.daily.co.jp/tigers/20220615/0015388271.shtml) · [2026 年报道](https://www.daily.co.jp/tigers/20260619/0020492026.shtml)
+- **日文维基百科《阪神百貨店》（1937—1940 梅田购地与停工令条目）**：[https://ja.wikipedia.org/wiki/阪神百貨店](https://ja.wikipedia.org/wiki/阪神百貨店)
+
+### 延伸阅读书目
+
+1. **小林一三《逸翁自叙伝》**（小林一三亲述创办箕面有马电铁、宝塚歌剧、沿线开发与“包围阪神”构想的自传）
+2. **《阪神電気鉄道八十年史》**（阪神电铁官方八十年社史）
+3. **《阪神急行電鉄二十五年史》**（阪急电铁早期官方二十五年社史）
+4. **《宝塚市史》**（记录箕面有马电铁至宝塚新温泉开发的地方史）
+
+### 地图、影像与配乐来源
+
+- **地图与地形数据**：© OpenStreetMap 贡献者（OpenFreeMap）、国土地理院、今昔マップ on the web（谷謙二）、Mapzen / AWS Terrain Tiles。
+- **历史老照片与现代实拍**：日本国立国会图书馆数字馆藏（公有领域）、Wikimedia Commons 公有领域与 CC 授权作品（封面列车原照：MaedaAkihiko / CC0）。
+- **视频配乐与音效**：*"Spy Glass"*, *"Heartbreaking"*, *"Heartwarming"* by Kevin MacLeod (incompetech.com, CC BY 4.0)；*"Cinematic trailer - clock ticking & braams"* by Tomas_Herudek (Pixabay)；JR East 205 series door chime by e3uematsu (CC BY-SA 3.0)；转场音效：Kenney (CC0)。
